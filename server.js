@@ -1,6 +1,6 @@
 // don't need morgan but do need handle bars
 var express = require("express");
-var exphbs = require("express-handlebars")
+var exphbs = require("express-handlebars");
 // var logger = require("morgan");
 var mongoose = require("mongoose");
 //
@@ -25,7 +25,8 @@ var app = express();
 // app.use(logger("dev"));
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 mongoose.connect(MONGODB_URI);
 
@@ -40,12 +41,11 @@ app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/mongoosenews, {
-  useNewUrlParser: true,
-});
+// // mongoose.connect("mongodb://localhost/mongoosenews, {
+// //   useNewUrlParser: true,
+// // });
 
-
-});
+// });
 
 // Route for getting all Articles from the db
 app.get("/articles", function (req, res) {
